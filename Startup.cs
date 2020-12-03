@@ -27,7 +27,6 @@ namespace Commander
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
 			services.AddScoped<ICommanderRepo, MockCommandRepo>();
         }
 
