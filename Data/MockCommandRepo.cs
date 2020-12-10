@@ -5,6 +5,11 @@ namespace Commander.Data
 {
 	public class MockCommandRepo : ICommanderRepo
 	{
+		public void CreateCommand(Command cmd)
+		{
+			throw new System.NotImplementedException();
+		}
+
 		public IEnumerable<Command> GetAllCommands()
 		{
 			var commands = new List<Command>{
@@ -40,8 +45,17 @@ namespace Commander.Data
 				Platform = "Pan"
 			};
 		}
+
+		public bool SaveChanges()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }
+
+
+// W I T H O U T   D T O   A N D   P R O F I L E 
+
 
 /*
 
