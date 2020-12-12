@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace Commander
 {
@@ -30,11 +31,14 @@ namespace Commander
 		{
 			services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
 			/*
-  "ConnectionStrings": {
-    "WineDbConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=[AbsoluteFolderPath]\\WINEDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  				"ConnectionStrings": {
+    			"WineDbConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=[AbsoluteFolderPath]\\WINEDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+			*/			
 
-*/
-			services.AddControllers();
+			services.AddControllers().AddNewtonsoftJson(s => {
+				s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+			});
+
 			//services.AddScoped<ICommanderRepo, MockCommandRepo>();
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 			services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
