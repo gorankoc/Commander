@@ -10,7 +10,8 @@ namespace Commander.Profiles
         {
             // map from source to dest obj.
             CreateMap<Command, CommandReadDto>();
-            CreateMap<CommandCreateDTO, Command>();
+            CreateMap<CommandCreateDto, Command>();
+			CreateMap<CommandUpdateDto, Command>();
         }
     }
 }

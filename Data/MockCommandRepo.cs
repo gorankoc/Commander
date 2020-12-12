@@ -50,11 +50,16 @@ namespace Commander.Data
 		{
 			throw new System.NotImplementedException();
 		}
+
+		public void UpdateCommand(Command cmd)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }
 
 
-// W I T H O U T   D T O   A N D   P R O F I L E 
+// W I T H O U T   D T O   A N D   P R O F I L E
 
 
 /*
