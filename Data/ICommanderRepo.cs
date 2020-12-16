@@ -3,10 +3,8 @@
 using System.Collections.Generic;
 using Commander.Models;
 
-namespace Commander.Data
-{
-    public interface ICommanderRepo
-    {
+namespace Commander.Data{
+    public interface ICommanderRepo{
          bool SaveChanges();
 
          IEnumerable<Command> GetAllCommands();

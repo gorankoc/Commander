@@ -2,12 +2,9 @@ using AutoMapper;
 using Commander.Dtos;
 using Commander.Models;
 
-namespace Commander.Profiles
-{
-    public class CommandsProfile: Profile
-    {
-        public CommandsProfile()
-        {
+namespace Commander.Profiles{
+    public class CommandsProfile: Profile{
+        public CommandsProfile(){
             // map from source to dest obj.
             CreateMap<Command, CommandReadDto>();
             CreateMap<CommandCreateDto, Command>();
